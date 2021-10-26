@@ -1,6 +1,6 @@
 public class Board {
 
-    public final int SIZE = 8;
+    private final int SIZE = 8;
 
     public char[][] board = new char[SIZE][SIZE];
 
