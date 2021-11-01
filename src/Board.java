@@ -4,18 +4,22 @@ public class Board {
 
     public char[][] board = new char[SIZE][SIZE];
 
-    public void initialiseBoard(char[][] arr){
+    public char[][] getBoard() {
+        return board;
+    }
+
+    public void initialiseBoard(){
         for(int i = 0; i<SIZE;i++){
             for(int j=0;j<SIZE;j++){
                 // set each 'tile' on the board to empty
-                arr[i][j] = ' ';
+                this.board[i][j] = ' ';
             }
         }
 
-        arr[3][3] = 'W';
-        arr[3][4] = 'B';
-        arr[4][3] = 'B';
-        arr[4][4] = 'W';
+        this.board[3][3] = 'W';
+        this.board[3][4] = 'B';
+        this.board[4][3] = 'B';
+        this.board[4][4] = 'W';
     }
 
 
@@ -40,13 +44,20 @@ public class Board {
         }
     }
 
-    public void updateScore(){
+    public boolean isNotEmpty(String input){
+        if(board[Character.getNumericValue(input.charAt(1))][input.charAt(0)-'a'] == 'B')
+            return true;
+        if(board[Character.getNumericValue(input.charAt(1))][input.charAt(0)-'a'] == 'W')
+            return true;
 
+        return false;
     }
+
+
 
     public static void main(String[] args) {
         Board b = new Board();
-        b.initialiseBoard(b.board);
+        b.initialiseBoard();
         b.printBoard();
     }
 

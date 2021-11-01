@@ -9,20 +9,17 @@ public class Player {
         this.colour = colour;
     }
 
-    public void move(char[] input, Board b){
+    public void move(String input, Board b){
 
     }
 
 
-    public boolean checkMove(char[] input){
+    public boolean checkMove(String input){
 
         return false;
     }
 
-    public boolean isNotEmpty(char[] input){
 
-        return false;
-    }
 
     public boolean validMove(char color, int dRow, int dCol, int row, int col){
         char opp;
