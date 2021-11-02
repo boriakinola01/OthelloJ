@@ -1,11 +1,20 @@
 public class Board {
 
     private final int SIZE = 8;
+    private int numOfTiles;
 
     public char[][] board = new char[SIZE][SIZE];
 
     public char[][] getBoard() {
         return board;
+    }
+
+    public int getNumOfTiles() {
+        return numOfTiles;
+    }
+
+    public void setNumOfTiles(int numOfTiles) {
+        this.numOfTiles = numOfTiles;
     }
 
     public void initialiseBoard(){
@@ -52,6 +61,8 @@ public class Board {
 
         return false;
     }
+
+
 
 
 
