@@ -26,17 +26,6 @@ public class Player {
         return colour;
     }
 
-    public void updateScore(Board b){
-        int num = 0;
-        for(int i=0; i<b.getSIZE(); i++){
-            for(int j=0; j<b.getSIZE(); j++){
-                if(b.getBoard()[i][j] == getColour())
-                    num++;
-            }
-        }
-
-        setScore(num);
-    }
 
     public void movePlayer(String input, Board b){
         char opp = ' ';

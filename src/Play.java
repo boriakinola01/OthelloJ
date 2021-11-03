@@ -25,12 +25,14 @@ public class Play {
 
             if(gameBoard.movesAvailable(p1)){
                 util.play(p1, gameBoard);
+                util.updateScore(gameBoard, p1, p2);
                 gameBoard.printBoard(p1, p2);
             }
 
             if(gameBoard.movesAvailable(p2)){
 
                 util.play(p2, gameBoard);
+                util.updateScore(gameBoard, p1, p2);
                 gameBoard.printBoard(p1, p2);
             }
 

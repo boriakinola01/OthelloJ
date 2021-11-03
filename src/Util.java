@@ -49,8 +49,24 @@ public class Util {
         p.movePlayer(slot, b);
 
         b.setNumOfTiles(b.getNumOfTiles()+1);
-        p.updateScore(b);
 
+
+    }
+
+    public void updateScore(Board b, Player p1, Player p2){
+        int x = 0, y = 0;
+        for(int i=0; i<b.getSIZE(); i++){
+            for(int j=0; j<b.getSIZE(); j++){
+                if(b.getBoard()[i][j] == p1.getColour())
+                    x++;
+
+                if(b.getBoard()[i][j] == p2.getColour())
+                    y++;
+            }
+        }
+
+        p1.setScore(x);
+        p2.setScore(y);
     }
 
     public void initialiseGame(Board b, Player p1, Player p2){
