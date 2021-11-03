@@ -90,43 +90,38 @@ public class Board {
     }
 
     public boolean validMove(char color, int dRow, int dCol, int row, int col){
-        char opp;
+        char opp = ' ';
 
         if(color == 'B')
             opp = 'W';
         else if(color == 'W')
             opp = 'B';
 
+        if((row+dRow < 0) || (row+dRow > SIZE-1) || (col+dCol < 0) || (col+dCol > SIZE-1))
+            return false;
 
-        return false;
+        if(getBoard()[row+dRow][col+dCol] != opp)
+            return false;
+
+        if((row+dRow+dRow < 0) || (row+dRow+dRow > 7) || (col+dCol+dCol < 0) || (col+dCol+dCol > 7))
+            return false;
+
+
+        return lineCheck(color, dRow, dCol, row+dRow+dRow, col+dCol+dCol);
 
     }
 
-    public boolean checkMove(Player p, String input){
+    public boolean lineCheck(char c, int dRow, int dCol, int row, int col){
+        if(getBoard()[row][col] == c)
+            return true;
 
-        int row = Character.getNumericValue(input.charAt(1));
-        int col = input.charAt(0)-'a';
+        if((row+dRow < 0) || (row+dRow > getSIZE()-1) || (col+dCol < 0) || (col+dCol > getSIZE()-1))
+            return false;
 
-        for(int i = -1; i <= 1; i++){
-            for (int j = -1; j <= 1; ++j) {
-                // check if any of the directions make the move valid
-                boolean check = validMove(p.getColour(), i, j, row, col);
-                if(check) // if so, return true
-                    return true;
-            }
-        }
-
-        return false;
+        return lineCheck(c, dRow, dCol, row+dRow, col+dCol);
     }
 
 
 
-
-
-    public static void main(String[] args) {
-        Board b = new Board();
-        b.initialiseBoard();
-        b.printBoard();
-    }
 
 }

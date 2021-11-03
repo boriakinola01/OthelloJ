@@ -13,6 +13,23 @@ public class Util {
         return true;
     }
 
+    public boolean checkMove(Player p, Board b, String input){
+
+        int row = Character.getNumericValue(input.charAt(1));
+        int col = input.charAt(0)-'a';
+
+        for(int i = -1; i <= 1; i++){
+            for (int j = -1; j <= 1; ++j) {
+
+                boolean check = b.validMove(p.getColour(), i, j, row, col);
+                if(check)
+                    return true;
+            }
+        }
+
+        return false;
+    }
+
     public void play(Player p, Board b){
 
         System.out.printf("%s", p.getName());
