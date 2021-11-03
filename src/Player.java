@@ -3,8 +3,8 @@ public class Player {
 
 
     private int score;
-    private String name;
-    private char colour;
+    private final String name;
+    private final char colour;
 
     public Player(String name, char colour) {
         this.name = name;
