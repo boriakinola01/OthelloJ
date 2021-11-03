@@ -12,6 +12,7 @@ public class Play {
         System.out.println("Enter name of Player 1 (Black):");
         String name = input.nextLine();
         Player p1 = new Player(name, 'B');
+        System.out.println("Enter name of Player 2 (White):");
         name = input.nextLine();
         Player p2 = new Player(name, 'W');
 

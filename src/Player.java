@@ -1,7 +1,6 @@
 public class Player {
 
 
-
     private int score;
     private final String name;
     private final char colour;
