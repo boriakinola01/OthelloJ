@@ -9,6 +9,14 @@ public class Board {
         return board;
     }
 
+    public void setBoard(int x, int y, char c) {
+        this.board[x][y] = c;
+    }
+
+    public int getSIZE() {
+        return SIZE;
+    }
+
     public int getNumOfTiles() {
         return numOfTiles;
     }
@@ -58,6 +66,55 @@ public class Board {
             return true;
         if(board[Character.getNumericValue(input.charAt(1))][input.charAt(0)-'a'] == 'W')
             return true;
+
+        return false;
+    }
+
+    public boolean movesAvailable(Player p){
+
+        for(int row = 0; row<SIZE; row++){
+            for(int col = 0; col<SIZE; col++){
+                if(board[row][col] == ' '){
+                    for(int i = -1; i <= 1; i++){
+                        for (int j = -1; j <= 1; ++j) {
+                            boolean check = validMove(p.getColour(), i, j, row, col);
+                            if(check)
+                                return true;
+                        }
+                    }
+                }
+            }
+        }
+
+        return false;
+    }
+
+    public boolean validMove(char color, int dRow, int dCol, int row, int col){
+        char opp;
+
+        if(color == 'B')
+            opp = 'W';
+        else if(color == 'W')
+            opp = 'B';
+
+
+        return false;
+
+    }
+
+    public boolean checkMove(Player p, String input){
+
+        int row = Character.getNumericValue(input.charAt(1));
+        int col = input.charAt(0)-'a';
+
+        for(int i = -1; i <= 1; i++){
+            for (int j = -1; j <= 1; ++j) {
+                // check if any of the directions make the move valid
+                boolean check = validMove(p.getColour(), i, j, row, col);
+                if(check) // if so, return true
+                    return true;
+            }
+        }
 
         return false;
     }
