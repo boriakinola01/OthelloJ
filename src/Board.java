@@ -121,7 +121,4 @@ public class Board {
         return lineCheck(c, dRow, dCol, row+dRow, col+dCol);
     }
 
-
-
-
 }

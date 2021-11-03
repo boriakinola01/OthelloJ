@@ -39,7 +39,7 @@ public class Util {
         String slot = input.nextLine();
 
         if(!slot.equals("p")){
-            while(b.isNotEmpty(slot) || !b.checkMove(p, slot) || !checkInput(slot)){
+            while(b.isNotEmpty(slot) || !checkMove(p, b, slot) || !checkInput(slot)){
                 System.out.println("Invalid move, enter a valid move:");
                 slot = input.nextLine();
             }
@@ -49,8 +49,7 @@ public class Util {
         p.movePlayer(slot, b);
 
         b.setNumOfTiles(b.getNumOfTiles()+1);
-        p.setScore(p.getScore()+1);
-        b.printBoard();
+        p.updateScore(b);
 
     }
 

@@ -18,16 +18,28 @@ public class Play {
 
         while(gameBoard.getNumOfTiles() != gameBoard.getSIZE()){
 
-            if(gameBoard.movesAvailable(p1))
+            if(gameBoard.movesAvailable(p1)){
+                gameBoard.printBoard();
                 util.play(p1, gameBoard);
+                gameBoard.printBoard();
+                printScoreboard(p1, p2);
+            }
 
-            if(gameBoard.movesAvailable(p2))
+            if(gameBoard.movesAvailable(p2)){
+                gameBoard.printBoard();
                 util.play(p2, gameBoard);
+                gameBoard.printBoard();
+                printScoreboard(p1, p2);
+            }
 
             if(!gameBoard.movesAvailable(p1) && !gameBoard.movesAvailable(p2))
                 break;
 
         }
         gameBoard.printBoard();
+    }
+
+    public static void printScoreboard(Player p1, Player p2){
+        System.out.printf("Scores: %s (Black):%d \t %s (White):%d", p1.getName(), p1.getScore(), p2.getName(), p2.getScore());
     }
 }
