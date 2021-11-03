@@ -1,3 +1,5 @@
+import jdk.swing.interop.SwingInterOpUtils;
+
 public class Board {
 
     private final int SIZE = 8;
@@ -25,22 +27,13 @@ public class Board {
         this.numOfTiles = numOfTiles;
     }
 
-    public void initialiseBoard(){
-        for(int i = 0; i<SIZE;i++){
-            for(int j=0;j<SIZE;j++){
-                // set each 'tile' on the board to empty
-                this.board[i][j] = ' ';
-            }
-        }
-
-        this.board[3][3] = 'W';
-        this.board[3][4] = 'B';
-        this.board[4][3] = 'B';
-        this.board[4][4] = 'W';
-    }
 
 
-    public void printBoard(){
+
+    public void printBoard(Player p1, Player p2){
+
+        System.out.println("Scores: " + p1.getName() + " (Black): " + p1.getScore() + "\t" +
+                p2.getName() + " (White): " + p2.getScore());
         System.out.println("     a   b   c   d   e   f   g   h");
         for(int i = 0; i<SIZE;i ++){
             System.out.print("   ");
@@ -59,6 +52,9 @@ public class Board {
         for(int j = 0;j<SIZE;j++){
             System.out.print(" ---");
         }
+        System.out.println();
+        System.out.print("    ");
+        System.out.println(" a   b   c   d   e   f   g   h");
     }
 
     public boolean isNotEmpty(String input){
