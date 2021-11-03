@@ -32,7 +32,7 @@ public class Util {
 
     public void play(Player p, Board b){
 
-        System.out.printf("%s\n", p.getName());
+        System.out.printf("%s's turn %c\n", p.getName(), p.getColour());
         System.out.println("Your move:");
 
         Scanner input = new Scanner(System.in);
@@ -64,7 +64,7 @@ public class Util {
         b.setBoard(3, 3, 'W');
         b.setBoard(4, 4, 'W');
         b.setBoard(3, 4, 'B');
-        b.setBoard(4, 4, 'B');
+        b.setBoard(4, 3, 'B');
 
         p1.setScore(2);
         p2.setScore(2);
