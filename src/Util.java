@@ -32,7 +32,7 @@ public class Util {
 
     public void play(Player p, Board b){
 
-        System.out.printf("%s's turn %c\n", p.getName(), p.getColour());
+        System.out.printf("%s's turn (%c)\n", p.getName(), p.getColour());
         System.out.println("Your move:");
 
         Scanner input = new Scanner(System.in);
